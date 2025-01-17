@@ -1,11 +1,14 @@
-package com.example.productcatalogservice.models;
+package com.example.productcatalogservice.dtos;
 
+import com.example.productcatalogservice.models.Category;
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
-public class Product extends BaseModel{
+public class ProductDto {
+    private Long id;
+
     private String title;
 
     private String description;
@@ -15,6 +18,4 @@ public class Product extends BaseModel{
     private Double amount;
 
     private Category category;
-
-    private Boolean isPrimeSpecific;
 }
