@@ -1,5 +1,6 @@
 package com.example.productcatalogservice.controllers;
 
+import com.example.productcatalogservice.dtos.CategoryDto;
 import com.example.productcatalogservice.dtos.ProductDto;
 import com.example.productcatalogservice.models.Category;
 import com.example.productcatalogservice.models.Product;
@@ -61,7 +62,7 @@ public class ProductController {
         productDto.setDescription(product.getDescription());
         productDto.setTitle(product.getTitle());
         if(product.getCategory()!=null){
-            Category c = new Category();
+            CategoryDto c = new CategoryDto();
             c.setName(product.getCategory().getName());
             c.setDescription(product.getCategory().getDescription());
             c.setId(product.getCategory().getId());
@@ -89,8 +90,9 @@ public class ProductController {
 
 
     @PostMapping("/products")
-    public ProductDto createProduct(@RequestBody ProductDto product){
-        return null;
+    public ProductDto createProduct(@RequestBody ProductDto productDto){
+        Product product = productService.createProduct(from(productDto));
+        return from(product);
     }
 
 

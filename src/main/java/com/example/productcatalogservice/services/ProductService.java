@@ -61,6 +61,11 @@ public class ProductService implements IProductService {
 
     }
     public Product createProduct(Product product){
+        FakeStoreProductDto fakeStoreProductDto = from(product);
+        FakeStoreProductDto fakeStoreProductDtoResponse = requestForEntity("https://fakestoreapi.com/products", HttpMethod.POST,fakeStoreProductDto,FakeStoreProductDto.class).getBody();
+        if(fakeStoreProductDtoResponse!=null){
+            return from(fakeStoreProductDtoResponse);
+        }
         return null;
     }
     private Product from(FakeStoreProductDto fakeStoreProductDto){
