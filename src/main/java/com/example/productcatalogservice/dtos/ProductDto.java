@@ -1,6 +1,6 @@
 package com.example.productcatalogservice.dtos;
 
-import com.example.productcatalogservice.models.Category;
+
 import lombok.Getter;
 import lombok.Setter;
 

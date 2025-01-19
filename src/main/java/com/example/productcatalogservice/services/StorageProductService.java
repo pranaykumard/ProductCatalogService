@@ -19,7 +19,7 @@ public class StorageProductService implements IProductService {
 
     @Override
     public List<Product> getAllProducts() {
-        return List.of();
+        return productRepo.findAll();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class StorageProductService implements IProductService {
 
     @Override
     public Product replaceProduct(Long id, Product product) {
-        return null;
+        return productRepo.save(product);
     }
 
     @Override
