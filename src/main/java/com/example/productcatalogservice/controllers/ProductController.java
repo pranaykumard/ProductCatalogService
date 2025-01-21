@@ -42,8 +42,10 @@ public class ProductController {
     @GetMapping("/products/{id}")
     public ResponseEntity<ProductDto> getProductById(@PathVariable("id") Long productId){
         try {
-            if (productId < 1)
+            if (productId < 0)
                 throw new RuntimeException("Product not found");
+            else if(productId == 0)
+                throw new RuntimeException("Invalid ProductId ");
             Product product = productService.getProductById(productId);
             if (product == null)
                 return null;

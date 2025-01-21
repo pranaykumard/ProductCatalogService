@@ -25,7 +25,7 @@ public class StorageProductService implements IProductService {
     @Override
     public Product getProductById(Long id) {
         Optional<Product> optionalProduct= productRepo.findById(id);
-        return optionalProduct.orElse(null);
+        return optionalProduct.get();
     }
 
     @Override

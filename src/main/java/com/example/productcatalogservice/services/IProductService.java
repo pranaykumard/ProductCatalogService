@@ -1,7 +1,6 @@
 package com.example.productcatalogservice.services;
 
 import com.example.productcatalogservice.models.Product;
-import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
